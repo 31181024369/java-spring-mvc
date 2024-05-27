@@ -13,24 +13,25 @@
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-                <title>Document</title>
+                <title>Update user</title>
             </head>
 
             <body>
                 <div class="container mt-5">
                     <div class="row">
                         <div class="col-md-6 col-12 mx-auto">
-                            <h3>Create a user</h3>
+                            <h3>Update a user ${newUser.id}</h3>
                             <hr>
-                            <form:form action="/admin/user/create" method="post" modelAttribute="newUser">
+                            <form:form action="/admin/user/update" method="post" modelAttribute="newUser">
+                                <div class="mb-3" style="display: none;">
+                                    <label class="form-label" for="">Id</label>
+                                    <form:input type="text" path="id" class="form-control" />
+                                </div>
                                 <div class="mb-3">
                                     <label class="form-label" for="">Email</label>
-                                    <form:input type="email" path="email" class="form-control" />
+                                    <form:input type="email" path="email" disabled="true" class="form-control" />
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label" for="">password</label>
-                                    <form:input type="password" path="password" class="form-control" />
-                                </div>
+
                                 <div class="mb-3">
                                     <label class="form-label" for="">phone number</label>
                                     <form:input type="text" path="phone" class="form-control" />
@@ -43,7 +44,7 @@
                                     <label class="form-label" for="">address</label>
                                     <form:input type="text" path="address" class="form-control" />
                                 </div>
-                                <button type="submit" class=" btn btn-warning">create</button>
+                                <button type="submit" class=" btn btn-warning">Update</button>
                             </form:form>
 
                         </div>
