@@ -44,7 +44,7 @@
                                             <h3>Create a user</h3>
                                             <hr>
                                             <form:form action="/admin/user/create" method="post"
-                                                modelAttribute="newUser" class="row">
+                                                modelAttribute="newUser" class="row" enctype="multipart/form-data">
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label" for="">Email</label>
                                                     <form:input type="email" path="email" class="form-control" />
@@ -71,17 +71,17 @@
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label class="form-label" for="">Role</label>
-                                                    <select class="form-select">
+                                                    <form:select class="form-select" path="role.name">
 
-                                                        <option value="ADMIN">ADMIN</option>
-                                                        <option value="USER">USER</option>
+                                                        <form:option value="ADMIN">ADMIN</form:option>
+                                                        <form:option value="USER">USER</form:option>
 
-                                                    </select>
+                                                    </form:select>
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label for="avatarFile" class="form-label">Avatar</label>
                                                     <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".png, .jpg, .jpeg">
+                                                        name="hoidanitFile" accept=".png, .jpg, .jpeg">
                                                 </div>
                                                 <div class="mb-3 col-12">
                                                     <img style="max-height: 250px; display: none;" alt="avatar preview"
