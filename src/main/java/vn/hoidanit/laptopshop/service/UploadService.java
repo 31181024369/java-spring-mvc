@@ -19,6 +19,8 @@ public class UploadService {
     }
 
     public String handSaveUploadFile(MultipartFile file, String targetFolder) {
+        if (file.isEmpty())
+            return "";
         String rootPath = this.servletContext.getRealPath("/resources/images");
         String finalName = "";
         try {

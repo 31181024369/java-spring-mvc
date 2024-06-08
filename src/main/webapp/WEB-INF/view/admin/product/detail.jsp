@@ -29,21 +29,21 @@
                             <div class=" container mt-5">
                                 <div class="row">
                                     <div class="col-12 mx-auto">
-                                        <h3>user detail id=${id}</h3>
+                                        <h3>Product detail id=${id}</h3>
                                         <hr>
                                         <div class="card" style="width: 60%;">
+                                            <img class="card-img-top" src="/images/product/${product.image}"
+                                                alt="Card image cap">
                                             <div class="card-header">
-                                                Featured
+                                                product infomation
                                             </div>
                                             <ul class="list-group list-group-flush">
-                                                <li class="list-group-item">ID:${user.id}</li>
-                                                <li class="list-group-item">Email: ${user.email}</li>
-                                                <li class="list-group-item">Fullname: ${user.fullname}</li>
-                                                <li class="list-group-item">Address: ${user.address}</li>
-
+                                                <li class="list-group-item">ID:${product.id}</li>
+                                                <li class="list-group-item">Name: ${product.name}</li>
+                                                <li class="list-group-item">Price: ${product.price}</li>
                                             </ul>
                                         </div>
-                                        <a class=" btn btn-success mt-3" href="/admin/user">Back</a>
+                                        <a class=" btn btn-success mt-3" href="/admin/product">Back</a>
 
                                     </div>
                                 </div>
