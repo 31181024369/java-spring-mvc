@@ -22,49 +22,46 @@
                 <div id="layoutSidenav_content">
                     <main>
                         <div class="container-fluid px-4">
-                            <h1 class="mt-4">Manage orders</h1>
+                            <h1 class="mt-4">Orders</h1>
                             <ol class="breadcrumb mb-4">
-                                <li class="breadcrumb-item active">Manage orders</li>
+                                <li class="breadcrumb-item active">Orders</li>
                             </ol>
-                            <div class="container mt-5">
+                            <div class=" container mt-5">
                                 <div class="row">
                                     <div class="col-12 mx-auto">
-                                        <div class="d-flex justify-content-between">
-                                            <h3>Table order</h3>
-
-                                        </div>
+                                        <h3>Order detail id=${id}</h3>
                                         <hr>
+
                                         <table class="table table-hover table-bordered">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">ID</th>
-                                                    <th scope="col">Total price</th>
-                                                    <th scope="col">User</th>
-                                                    <th scope="col">Status</th>
-                                                    <th scope="col">Action</th>
+                                                    <th scope="col">Sản phẩm</th>
+                                                    <th scope="col">tên</th>
+                                                    <th scope="col">Gía cả</th>
+                                                    <th scope="col">Số lượng</th>
+                                                    <th scope="col">Thành tiền</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
 
-                                                <c:forEach var="order" items="${orders}">
+                                                <c:forEach var="orderDetail" items="${orderDetails}">
                                                     <tr>
-                                                        <th scope="row">${order.id}</th>
-                                                        <td>${order.totalPrice}</td>
-                                                        <td>${order.user.fullname}</td>
-                                                        <td>${order.status}</td>
-                                                        <td>
-                                                            <a href="/admin/order/${order.id}"
-                                                                class="btn btn-success">Edit</a>
-                                                            <a href="/admin/order/update/${order.id}"
-                                                                class="btn btn-warning mx-2">Update</a>
-                                                            <a href="/admin/order/delete/${order.id}"
-                                                                class="btn btn-danger">Danger</button>
-                                                        </td>
+                                                        <th style="width: 200px;" scope="row">
+                                                            <img class="card-img-top"
+                                                                src="/images/product/${orderDetail.product.image}">
+                                                        </th>
+                                                        <th>${orderDetail.product.name}</th>
+                                                        <td>${orderDetail.price}</td>
+                                                        <td>${orderDetail.quantity}</td>
+                                                        <td>${orderDetail.price * orderDetail.quantity}"</td>
+
                                                     </tr>
                                                 </c:forEach>
 
                                             </tbody>
                                         </table>
+                                        <a class=" btn btn-success mt-3" href="/admin/order">Back</a>
+
                                     </div>
                                 </div>
                             </div>

@@ -29,13 +29,13 @@
                         </button>
                         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
-                                <a href="index.html" class="nav-item nav-link active">Home</a>
+                                <a href="/" class="nav-item nav-link active">Home</a>
                                 <a href="shop.html" class="nav-item nav-link">Shop</a>
                                 <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                        <a href="cart.html" class="dropdown-item">Cart</a>
+                                        <a href="/cart" class="dropdown-item">Cart</a>
                                         <a href="chackout.html" class="dropdown-item">Chackout</a>
                                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                                         <a href="404.html" class="dropdown-item">404 Page</a>
@@ -48,11 +48,13 @@
 
 
 
-                                    <a href="#" class="position-relative me-4 my-auto">
+                                    <a href="/cart" class="position-relative me-4 my-auto">
                                         <i class="fa fa-shopping-bag fa-2x"></i>
                                         <span
                                             class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                                            style="top: -5px; left: 15px; height: 20px; min-width: 20px;">
+                                            ${sessionScope.sum}
+                                        </span>
                                     </a>
                                     <div class="dropdown my-auto">
                                         <a href="#" class="dropdown" role="button" id="dropdownMenuLink"

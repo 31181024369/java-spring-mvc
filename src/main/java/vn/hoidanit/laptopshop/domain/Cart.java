@@ -26,6 +26,14 @@ public class Cart {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @OneToMany(mappedBy = "cart")
     List<CartDetail> CartDetails;
 
@@ -43,6 +51,14 @@ public class Cart {
 
     public void setSum(int sum) {
         this.sum = sum;
+    }
+
+    public List<CartDetail> getCartDetails() {
+        return CartDetails;
+    }
+
+    public void setCartDetails(List<CartDetail> cartDetails) {
+        CartDetails = cartDetails;
     }
 
 }
