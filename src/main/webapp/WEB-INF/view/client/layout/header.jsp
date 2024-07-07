@@ -20,7 +20,7 @@
                 </div>
                 <div class="container px-0">
                     <nav class="navbar navbar-light bg-white navbar-expand-xl">
-                        <a href="index.html" class="navbar-brand">
+                        <a href="/" class="navbar-brand">
                             <h1 class="text-primary display-6">Fruitables</h1>
                         </a>
                         <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
@@ -30,8 +30,8 @@
                         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                             <div class="navbar-nav mx-auto">
                                 <a href="/" class="nav-item nav-link active">Home</a>
-                                <a href="shop.html" class="nav-item nav-link">Shop</a>
-                                <a href="shop-detail.html" class="nav-item nav-link">Shop Detail</a>
+                                <a href="/products" class="nav-item nav-link">Product</a>
+
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">

@@ -5,7 +5,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.servlet.ServletContext;
 import jakarta.validation.Valid;
+import vn.hoidanit.laptopshop.domain.Product;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UploadService;
 import vn.hoidanit.laptopshop.service.UserService;
@@ -54,11 +59,28 @@ public class UserController {
     }
 
     @RequestMapping("/admin/user")
-    public String getUsePage(Model model) {
+    public String getUsePage(Model model, @RequestParam("page") Optional<String> pageOptional) {
         // model.addAttribute("newUser", new User());
         // return "admin/user/create";
-        List<User> users = this.userService.getAllUsers();
-        model.addAttribute("users", users);
+
+        int page = 1;
+        try {
+            if (pageOptional.isPresent()) {
+                page = Integer.parseInt(pageOptional.get());
+            } else {
+
+            }
+        } catch (Exception e) {
+
+        }
+        Pageable pageable = PageRequest.of(page - 1, 5);
+
+        Page<User> users = this.userService.getAllUsers(pageable);
+        List<User> listUsers = users.getContent();
+
+        model.addAttribute("users", listUsers);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", users.getTotalPages());
         return "admin/user/show";
     }
 

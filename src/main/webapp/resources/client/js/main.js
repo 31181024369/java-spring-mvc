@@ -129,6 +129,20 @@
         })
     });
 
+    const navElement = $("#navbarCollapse");
+        const currentUrl = window.location.pathname;
+        navElement.find('a.nav-link').each(function () {
+            const link = $(this); // Get the current link in the loop
+            const href = link.attr('href'); // Get the href attribute of the link
+
+            if (href === currentUrl) {
+                link.addClass('active'); // Add 'active' class if the href matches the current URL
+            } else {
+                link.removeClass('active'); // Remove 'active' class if the href does not match
+            }
+        });
+
+
 
 
     // Product Quantity
@@ -204,6 +218,51 @@
                 $(totalPriceElement[index]).attr("data-cart-total-price", newTotal);
             });
         }
+    });
+
+    $('#btnFilter').click(function (event) {
+        event.preventDefault();
+
+        let factoryArr = [];
+        let targetArr = [];
+        let priceArr = [];
+        //factory filter
+        $("#factoryFilter .form-check-input:checked").each(function () {
+            factoryArr.push($(this).val());
+        });
+
+        //target filter
+        $("#targetFilter .form-check-input:checked").each(function () {
+            targetArr.push($(this).val());
+        });
+
+        //price filter
+        $("#priceFilter .form-check-input:checked").each(function () {
+            priceArr.push($(this).val());
+        });
+
+        //sort order
+        let sortValue = $('input[name="radio-sort"]:checked').val();
+
+        const currentUrl = new URL(window.location.href);
+        const searchParams = currentUrl.searchParams;
+
+        // Add or update query parameters
+        searchParams.set('page', '1');
+        searchParams.set('sort', sortValue);
+
+        if (factoryArr.length > 0) {
+            searchParams.set('factory', factoryArr.join(','));
+        }
+        if (targetArr.length > 0) {
+            searchParams.set('target', targetArr.join(','));
+        }
+        if (priceArr.length > 0) {
+            searchParams.set('price', priceArr.join(','));
+        }
+
+        // Update the URL and reload the page
+        window.location.href = currentUrl.toString();
     });
 
     function formatCurrency(value) {
